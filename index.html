@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fernanda Design | Exclusive Interior Architecture</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #2C3E50; /* Dark Slate Blue */
+            --accent-color: #D4AF37; /* Muted Gold */
+            --bg-light: #F9F9F9;
+            --text-dark: #333333;
+            --text-light: #777777;
+            --white: #FFFFFF;
+            --padding-section: 80px 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Garamond', 'Georgia', serif;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        a {
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 15px 35px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            border: 1px solid var(--primary-color);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-style: italic;
+            color: var(--accent-color);
+            margin-bottom: 60px;
+            display: block;
+        }
+
+        /* --- HEADER --- */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+        }
+
+        .nav-links a {
+            margin-left: 30px;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- 1. HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background-color: #e0e0e0; /* Placeholder for image */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--white);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #f0f0f0;
+            margin-bottom: 40px;
+        }
+
+        .hero .btn {
+            background-color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+
+        .hero .btn:hover {
+            background-color: transparent;
+            color: var(--white);
+        }
+
+        /* --- 2. ABOUT US (THE VISION) --- */
+        .about {
+            padding: var(--padding-section);
+            background-color: var(--white);
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* --- 3. SERVICES (CURATED SPACES) --- */
+        .services {
+            padding: var(--padding-section);
+            background-color: var(--bg-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px;
+            border-bottom: 3px solid transparent;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .service-card:hover {
+            border-bottom: 3px solid var(--accent-color);
+            transform: translateY(-5px);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* --- 4. ADVANTAGES (WHY CHOOSE FERNANDA) --- */
+        .advantages {
+            padding: var(--padding-section);
+        }
+
+        .adv-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .adv-item {
+            text-align: left;
+        }
+
+        .adv-item h3 {
+            color: var(--accent-color);
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 15px;
+        }
+
+        .adv-item p {
+            padding-left: 19px;
+        }
+
+        /* --- 5. PROCESS (OUR METHODOLOGY) --- */
+        .process {
+            padding: var(--padding-section);
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .process h2 {
+            color: var(--white);
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 280px;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: rgba(255,255,255,0.1);
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .step h3 {
+            color: var(--accent-color);
+            position: relative;
+            z-index: 1;
+            margin-top: 20px;
+        }
+
+        .step p {
+            color: #cccccc;
+            position: relative;
+            z-index: 1;
+            font-size: 1rem;
+        }
+
+        /* --- 6 & 7. CONTACT FORM & INFO --- */
+        .contact {
+            padding: var(--padding-section);
+            background-color: var(--white);
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .contact-form-container {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .contact-info-container {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--bg-light);
+            padding: 40px;
+            border-radius: 4px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .info-item {
+            margin-bottom: 30px;
+        }
+
+        .info-item h4 {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #1a1a1a;
+            color: #888;
+            text-align: center;
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+
+        footer p {
+            color: #888;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simple hide for demo */
+            .contact-wrapper { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">FERNANDA DESIGN</div>
+                <div class="nav-links">
+                    <a href="#about">Our Vision</a>
+                    <a href="#services">Services</a>
+                    <a href="#process">Process</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>Sculpting Spaces with Brazilian Soul & Modern Elegance</h1>
+            <p>Fernanda Design brings the vibrancy of São Paulo and bespoke craftsmanship to your residential and commercial environments, creating interiors that tell your unique story.</p>
+            <a href="#contact" class="btn">Request a Consultation</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container about-content">
+            <h2 class="section-title">The Essence of Design</h2>
+            <span class="section-subtitle">More than decoration, we create atmosphere</span>
+            
+            <p>Founded in the vibrant heart of São Paulo by Fernanda Nascimento de Almeida, our firm represents the perfect intersection of artistic expression and architectural functionality. We believe that specialized interior design is not merely about aesthetics, but about deeply improving the quality of life through spatial harmony and flow.</p>
+            
+            <p>With years of experience in professional design services, we navigate the complex balance between bold, modern trends and timeless, enduring comfort. Our team approaches every project as a collaborative journey, ensuring that the final result reflects the client's distinct personality while adhering to the highest technical standards.</p>
+            
+            <p>From luxury private residences to dynamic corporate offices, Fernanda Design is committed to sustainable practices and meticulous attention to detail. We transform empty rooms into living, breathing experiences that inspire and comfort.</p>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Curated Design Solutions</h2>
+            <span class="section-subtitle">Comprehensive services for every scale</span>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Residential Metamorphosis</h3>
+                    <p>We specialize in turning houses into sanctuaries by rigorously analyzing light, spatial flow, and personal taste. Our team curates furniture, color palettes, and textures that evoke deep comfort while maximizing the utility of every square meter. Whether it is a single-room refresh or a whole-home renovation, we manage the entire lifecycle of the decoration process.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Corporate Identity Interiors</h3>
+                    <p>We translate your brand's ethos into a physical environment that boosts employee productivity and leaves a lasting impression on clients. By optimizing spatial planning and integrating ergonomic furniture with bold branding elements, we create workspaces that are both visually stunning and highly functional. Our designs help businesses establish a strong physical presence.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Styling & Art Curation</h3>
+                    <p>Not every project requires construction; sometimes a space simply needs the right eye for styling, art selection, and lighting. We offer specialized consultation services to select art pieces, accessories, and textiles that elevate existing structures without major renovations. This service is perfect for clients seeking a quick yet high-impact aesthetic upgrade.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="advantages">
+        <div class="container">
+            <h2 class="section-title">Why Partner with Fernanda Design</h2>
+            <span class="section-subtitle">Distinction in every detail</span>
+
+            <div class="adv-grid">
+                <div class="adv-item">
+                    <h3>Authentic Brazilian Aesthetic</h3>
+                    <p>We leverage local culture, tropical modernism, and high-quality regional materials to create unique designs that stand out from generic international styles, bringing warmth and character to any space.</p>
+                </div>
+                <div class="adv-item">
+                    <h3>End-to-End Management</h3>
+                    <p>We handle the complex logistics, procurement, contractor coordination, and final installation. This allows you to enjoy the creative evolution of your space without the stress of project administration.</p>
+                </div>
+                <div class="adv-item">
+                    <h3>Client-Centric Customization</h3>
+                    <p>No two projects are alike because no two clients are alike. We tailor every decision—from floor plans to fabric stitching—to your specific lifestyle needs, operational requirements, and budgetary goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process">
+        <div class="container">
+            <h2 class="section-title">Our Creative Journey</h2>
+            <span class="section-subtitle">From concept to reality in three steps</span>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">01</div>
+                    <h3>Discovery & Concept</h3>
+                    <p>We begin with a deep-dive consultation to understand your vision and needs, followed by the creation of mood boards and preliminary layout sketches to align our direction.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">02</div>
+                    <h3>Development & Sourcing</h3>
+                    <p>We create detailed technical drawings and source the finest materials, furniture, and decor from trusted suppliers, ensuring quality and cohesion.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">03</div>
+                    <h3>Execution & Reveal</h3>
+                    <p>Our team oversees the construction, installation, and final styling on-site, managing every detail until the final walkthrough and handover of your new space.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Start Your Transformation</h2>
+            <span class="section-subtitle">Let's discuss your next project</span>
+
+            <div class="contact-wrapper">
+                <div class="contact-form-container">
+                    <form action="#" method="POST">
+                        <div>
+                            <label>Name</label>
+                            <input type="text" name="name" placeholder="Your Full Name" required>
+                        </div>
+                        <div>
+                            <label>Email</label>
+                            <input type="email" name="email" placeholder="your@email.com" required>
+                        </div>
+                        <div>
+                            <label>Service Interest</label>
+                            <select name="subject">
+                                <option value="Residential">Residential Design</option>
+                                <option value="Commercial">Commercial / Office</option>
+                                <option value="Consultation">Styling Consultation</option>
+                                <option value="Other">Other Inquiry</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Tell us about your space</label>
+                            <textarea name="message" placeholder="Describe your project, location, and goals..."></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Request</button>
+                    </form>
+                </div>
+
+                <div class="contact-info-container">
+                    <div class="info-item">
+                        <h4>Headquarters</h4>
+                        <p>SAO PAULO, SAO PAULO<br>Brazil</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>General Inquiries</h4>
+                        <p>info@fernanddecoracaointerio.info</p>
+                    </div>
+                    <div class="info-item">
+                        <h4>Office Hours</h4>
+                        <p>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: By Appointment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Fernanda Decoracao E Interior Design LTDA. All Rights Reserved.</p>
+            <p>Doing Business As: FERNANDA DESIGN</p>
+        </div>
+    </footer>
+
+</body>
+</html>
